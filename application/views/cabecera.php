@@ -9,10 +9,10 @@
               </div>
               <div id="mainListDiv" class="main_list">
                   <ul class="navlinks">
-                      <li><a href="#">Sobre nosotros</a></li>
-                      <li><a href="#">Apartamentos</a></li>
-                      <li><a href="#">Localización</a></li>
-                      <li><a href="#">Contacto</a></li>
+                      <li><a href="<?php echo base_url().'Otros/sobrenosotros' ?>">Sobre nosotros</a></li>
+                      <li><a href="<?php echo base_url().'Apartamentos/categorias' ?>">Apartamentos</a></li>
+                      <li><a href="<?php echo base_url().'Otros/localizacion' ?>">Localización</a></li>
+                      <li><a href="<?php echo base_url().'Otros/contacto' ?>">Contacto</a></li>
                   </ul>
               </div>
               <span class="navTrigger">

@@ -20,6 +20,6 @@ class Inicio extends CI_Controller {
 		// }
 		// $datos2['ultimos3']=$this->UM_Cursos->ultimos3();
 		 $this->load->view('index');
-		// $this->load->view('footer');
+		 $this->load->view('footer');
 	}
 }

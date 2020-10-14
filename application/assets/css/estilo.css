@@ -7,6 +7,7 @@ body {
 	font-family: "Quicksand", sans-serif;
 	font-size: 62.5%;
 	font-size: 14px;
+	background-color: rgb(202, 222, 228)
 }
 
 /* Navbar section */
@@ -15,6 +16,7 @@ body {
 	height: 65px;
 	position: fixed;
 	line-height: 65px;
+	z-index: 10;
 }
 
 .nav div.logo, .nav div.tituloCab {
@@ -46,7 +48,7 @@ body {
 }
 
 .nav div.tituloCab a:hover {
-	color: #165262;
+	color: rgb(202, 222, 228);
 }
 
 .nav div.main_list {
@@ -86,7 +88,7 @@ body {
 }
 
 .nav div.main_list ul li a:hover {
-	color: #165262;
+	color: rgb(151, 212, 231);
 }
 
 /* Home section */
@@ -139,6 +141,7 @@ body {
 		width: 100%;
 		height: 0;
 		overflow: hidden;
+
 	}
 
 	.nav div.show_list {
@@ -150,7 +153,7 @@ body {
 		flex-direction: column;
 		width: 100%;
 		height: auto;
-		background-color: rgb(0, 0, 0, 0.6);
+		background-color: rgb(0, 0, 0, 0.8);
 		z-index: 1;
 		background-position: center;
 		margin-top: 2rem;
@@ -372,7 +375,7 @@ body {
 
 .affix {
 	padding: 0;
-	background-color: rgb(17, 17, 17, 0.7);
+	background-color: rgb(17, 17, 17, 0.75);
 }
 
 .myH2 {
@@ -391,4 +394,110 @@ body {
 	.myP {
 		padding: 2%;
 	}
+}
+
+#formFechas {
+	width:100%;
+	animation: fadein 1.5s;
+	-moz-animation: fadein 1.5s;
+	-webkit-transition: fadein 1.5s;
+	transition: fadein 1.5s;
+}
+
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-o-keyframes fadein { /* Opera */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+/* FORM CSS */
+.formBox{
+	margin-top: 90px;
+	padding: 50px;
+}
+.formBox  h1{
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	margin-bottom: 50px;
+	text-transform: uppercase;
+	font-size: 48px;
+}
+.inputBox{
+	position: relative;
+	box-sizing: border-box;
+	margin-bottom: 50px;
+}
+.inputBox .inputText{
+	position: absolute;
+	color: #000;
+    font-size: 18px;
+    /*line-height: 50px;*/
+    transition: .5s;
+    opacity: .8;
+}
+.inputBox .input{
+	position: relative;
+	width: 100%;
+	height: 50px;
+	background: transparent;
+	border: none;
+    outline: none;
+    font-size: 14px;
+		color: #000;
+    border-bottom: 1px solid rgba(0,0,0,.5);
+
+}
+.focus .inputText{
+	transform: translateY(-30px);
+	font-size: 18px;
+	opacity: 1;
+	color: #000;
+
+}
+textarea{
+	height: 100px !important;
+}
+.button{
+	width: 100%;
+    height: 50px;
+    border: none;
+    outline: none;
+    background: #03A9F4;
+    color: #000;
+}
+.btn-buscar{
+	margin-top:65px;
+	border: 1px solid;
+	font-size: 16px;
+}
+.btn-buscar:hover{
+	color:#d5d5d5;
+	background-color: #000;
 }

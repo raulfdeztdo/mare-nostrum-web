@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-
     <title><?php print $title; ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
@@ -13,8 +12,13 @@
     <script src="<?= asset_url('js/bootstrap.min.js') ?>"></script>
     <!-- Archivos propios -->
     <link rel="stylesheet" href="<?= asset_url('css/estilo.css') ?>">
+    <link rel="stylesheet" href="<?= asset_url('css/footer.css') ?>">
     <script src="<?= asset_url('js/jquery-mn.js') ?>"></script>
-
+    <!-- FA icons -->
+    <link rel="stylesheet" href="<?= asset_url('fa-icons\css\all.min.css') ?>">
+    <link rel="stylesheet" href="<?= asset_url('fa-icons\css\brands.css') ?>">
+    <script src="<?= asset_url('fa-icons\js\all.js') ?>"></script>
+    <script src="<?= asset_url('fa-icons\js\brands.js') ?>"></script>
   </head>
   <style>
     /* Fuentes importadas */
