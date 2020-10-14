@@ -501,3 +501,17 @@ textarea{
 	color:#d5d5d5;
 	background-color: #000;
 }
+
+@media screen and (max-width: 700px) {
+	#mapa {
+		width: 350px;
+		height: 300px;
+	}
+	.imgSlide{
+		width: 350px !important;
+		height: 218px !important;
+	}
+	.textoLoc{
+		width: 80% !important;
+	}
+}

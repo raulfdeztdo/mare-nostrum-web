@@ -1,4 +1,4 @@
-  <!-- Site footer -->
+  <!-- Footer -->
       <footer class="site-footer">
         <div class="container" style="color: #F2F2F2">
           <div class="row">

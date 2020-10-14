@@ -2,10 +2,10 @@
   <nav class="nav">
           <div class="container">
               <div class="logo">
-                  <a href="#"><img id="imgCabecera" src="<?= asset_url('img/logo-solo.png') ?>" ></a>
+                  <a href="<?php echo base_url().'Inicio/index' ?>"><img id="imgCabecera" src="<?= asset_url('img/logo-solo.png') ?>" ></a>
               </div>
               <div class="tituloCab">
-                <a href="#"><h2 class="text-white" id="tituloCabecera"> Mare Nostrum </h2></a>
+                <a href="<?php echo base_url().'Inicio/index' ?>"><h2 class="text-white" id="tituloCabecera"> Mare Nostrum </h2></a>
               </div>
               <div id="mainListDiv" class="main_list">
                   <ul class="navlinks">
@@ -58,5 +58,3 @@
 
           });
       </script>
-     </body>
-  </html>

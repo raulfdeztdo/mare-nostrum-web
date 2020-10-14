@@ -14,6 +14,7 @@ class Otros extends CI_Controller {
 		$this->load->view('head', $title);
 		 $this->load->view('cabecera');
 		 $this->load->view('localizacion');
+     $this->load->view('footer');
 	}
 
   public function contacto() {

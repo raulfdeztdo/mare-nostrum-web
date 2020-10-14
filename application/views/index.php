@@ -29,7 +29,7 @@
   </div>
 </div>
   <div class="container" style="max-width: 1400px; margin-bottom: 2%">
-    <div class="row justify-content-center" style="0 20%">
+    <div class="row justify-content-center">
         <div class="card mr-4 mt-2" style="max-width: 300px">
           <div class="card-header" style="padding: 0">
             <div id="Ap1" class="carousel slide" data-ride="carousel">
