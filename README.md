@@ -17,10 +17,10 @@ propio sitio web.
 
 ***
 
-![img2](application/assets/img/marenostrum.jpg)
+![img2](application/assets/img/marenostrum.png)
 
 ***
 
-![img3](application/assets/img/marenostrum2.jpg)
+![img3](application/assets/img/marenostrum2.png)
 
 ***
