@@ -20,7 +20,7 @@ class Auth extends CI_Controller {
     } else {
       if(!$this->input->post()){
         $title['title']= "Admin - Mare Nostrum";
-        $this->load->view('head-admin', $title);
+        $this->load->view('head-Admin', $title);
         $this->load->view('login',null);
       } else {
         $this->form_validation->set_rules('usuario', 'Usuario','trim|xss_clean');
