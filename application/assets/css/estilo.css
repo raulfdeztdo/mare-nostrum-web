@@ -456,7 +456,7 @@ body {
 }
 .inputBox .inputText{
 	position: absolute;
-	color: #000;
+	color: rgb(0, 84, 115);
     font-size: 18px;
     /*line-height: 50px;*/
     transition: .5s;
@@ -468,21 +468,24 @@ body {
 	height: 50px;
 	background: transparent;
 	border: none;
-    outline: none;
-    font-size: 14px;
-		color: #000;
-    border-bottom: 1px solid rgba(0,0,0,.5);
-
+  outline: none;
+  font-size: 14px;
+	color: rgb(0, 84, 115);
+  border-bottom: 1px solid rgba(0,84,115,.7);
 }
 .focus .inputText{
 	transform: translateY(-30px);
 	font-size: 18px;
 	opacity: 1;
-	color: #000;
+	color: rgb(0, 84, 115);
 
 }
-textarea{
-	height: 100px !important;
+.textareaContact{
+	height: 150px !important;
+	animation: height 1s;
+	-moz-animation: height 1s;
+	-webkit-transition: height 1s;
+	transition: height 1s;
 }
 .button{
 	width: 100%;
@@ -490,21 +493,22 @@ textarea{
     border: none;
     outline: none;
     background: #03A9F4;
-    color: #000;
+    color: rgb(0, 84, 115);
 }
 .btn-buscar{
 	margin-top:65px;
-	border: 1px solid;
+	color: rgb(0, 84, 115);
+	border: 1px rgb(0, 84, 115) solid;
 	font-size: 16px;
 }
 .btn-buscar:hover{
 	color:#d5d5d5;
-	background-color: #000;
+	background-color: rgb(0, 84, 115);
 }
 
 @media screen and (max-width: 700px) {
-	#mapa {
-		width: 350px;
+	#mapa{
+		width: 350px !important;
 		height: 300px;
 	}
 	.imgSlide{
@@ -513,5 +517,8 @@ textarea{
 	}
 	.textoLoc{
 		width: 80% !important;
+	}
+	.formContact {
+		width: 90% !important;
 	}
 }

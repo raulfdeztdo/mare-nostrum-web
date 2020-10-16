@@ -1,5 +1,5 @@
 <?php
-  class User extends CI_Controller {
+  class Admin extends CI_Controller {
 
     public function __construct() {       // Define el constructor
       parent::__construct();              // Invoca al constructor de la clase superior
@@ -8,7 +8,13 @@
     }
 
     public function index(){
-      redirect(base_url().'Auth/login');
+      if (isset($_SESSION['logged_in'])) {
+        $title['title'] = 'Admin - Mare Nostrum';
+        $this->load->view('head-Admin', $title);
+        $this->load->view('index-Admin');
+      } else {
+        redirect(base_url().'Auth/login');
+      }
     }
 
     public function checkAlta($usuario){

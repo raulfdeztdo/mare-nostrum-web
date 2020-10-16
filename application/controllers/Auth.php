@@ -7,36 +7,37 @@ class Auth extends CI_Controller {
   }
 
   public function index(){
-    redirect(base_url().'Auth/login');
+    if (isset($_SESSION['logged_in'])) {
+      $this->load->view('index');
+    } else {
+      redirect(base_url().'Auth/login');
+    }
   }
 
   public function login() {
-    //No hay datos de login
-    if(!$this->input->post()){
-      $menu['activo']="inicio";
-      $this->load->view('head');
-      $this->load->view('cabecera', $menu);
-      $this->load->view('login',null);
+    if (isset($_SESSION['logged_in'])) {
+      redirect(base_url().'Admin/index');
     } else {
-      $this->form_validation->set_rules('user', 'user','trim|xss_clean');
-      $this->form_validation->set_rules('password_auth', 'password_auth','trim|xss_clean|callback_auth');
-      if ($this->form_validation->run() == FALSE) {
-        $menu['activo']="inicio";
-        $title['title']="Inicio";
-        $this->load->view('head', $title);
-        $this->load->view('cabecera', $menu);
-        $this->load->view('login');
-        $datos2['ultimos3']=$this->UM_Cursos->ultimos3();
-    		$this->load->view('index', $datos2);
-    		$this->load->view('footer');
+      if(!$this->input->post()){
+        $title['title']= "Admin - Mare Nostrum";
+        $this->load->view('head-admin', $title);
+        $this->load->view('login',null);
       } else {
-        redirect(base_url().'Inicio/index');
+        $this->form_validation->set_rules('usuario', 'Usuario','trim|xss_clean');
+        $this->form_validation->set_rules('contraseña', 'Contraseña','trim|xss_clean|callback_auth');
+        if ($this->form_validation->run() == FALSE) {
+          $title['title']="Admin - Mare Nostrum";
+          $this->load->view('head-admin', $title);
+          $this->load->view('login');
+        } else {
+          redirect(base_url().'Admin/index');
+        }
       }
     }
   }
 
   public function auth($password){
-    $username = $this->input->post('user');
+    $username = $this->input->post('usuario');
     $user = $this->UM_Users->authenticate($username, $password);
 
     if ($user) {
@@ -45,8 +46,7 @@ class Auth extends CI_Controller {
         'id' => $user->id,
         'nombre' => $user->nombre,
         'email' => $user->email,
-        'group' => $user->group,
-        'f_nac' => $user->f_nac
+        'group' => $user->group
       );
       return TRUE;
     }
@@ -56,7 +56,7 @@ class Auth extends CI_Controller {
 
   public function logout(){
     unset($_SESSION['logged_in']);
-    redirect(base_url().'Inicio/index');
+    redirect(base_url().'Auth/login');
   }
 
 

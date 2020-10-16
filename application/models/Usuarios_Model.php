@@ -19,8 +19,8 @@
     public function authenticate($user, $password){
       $this->db->select('iduser, nombreusu, group');
       $this->db->from('usuarios');
-      $this->db->where('nombre', $user);
-      $this->db->where('password', hash('sha256', $password));
+      $this->db->where('nombreusu', $user);
+      $this->db->where('pass', hash('sha256', $password));
       //$this->db->where('password', hash('sha256', $password));
       $this->db->limit(1);
       $query = $this->db->get();

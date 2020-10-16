@@ -22,13 +22,7 @@ class Otros extends CI_Controller {
     $title['title']="Contacto - Mare Nostrum";
     $this->load->view('head', $title);
      $this->load->view('cabecera');
-    // if (isset($_SESSION['logged_in'])) {
-    // 	$this->load->view('login_correct');
-    // } else {
-    // 	$this->load->view('login');
-    // }
-    // $datos2['ultimos3']=$this->UM_Cursos->ultimos3();
-     $this->load->view('index');
+     $this->load->view('contacto');
      $this->load->view('footer');
   }
 
@@ -43,7 +37,7 @@ class Otros extends CI_Controller {
     // 	$this->load->view('login');
     // }
     // $datos2['ultimos3']=$this->UM_Cursos->ultimos3();
-     $this->load->view('index');
+     $this->load->view('sobrenosotros');
      $this->load->view('footer');
   }
 }

@@ -1,4 +1,4 @@
-<div class="jumbotron text-white" style="background-color: rgb(0, 84, 115); border-radius: 0">
+<div class="jumbotron text-white" style="background-color: #005473; border-radius: 0">
   <div class="row">
     <div id="formFechas" class="col-12 form-inline justify-content-center">
       <div class="imgForm text-white text-center" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url(<?= asset_url('img/fotosApartamentos/render2-form.png') ?>); height: 300px; width: 550px">
@@ -206,7 +206,7 @@
         <div class="text-center" style="position: relative; flex-direction: column; color: rgb(0, 84, 115); margin-top: 3%; width: 50%">
           <h2>Contacta con nosotros</h2>
           <hr style="background-color: rgb(0, 84, 115); width: 50%;"><br>
-          <h5>Puedes contactar con nosotros a través del <a href="#" style="color: rgb(0, 84, 115)"><b>formulario de contacto</b></a>, del formulario de contacto del aparamento que te guste o si lo prefieres puedes contactar con nosotros a través de nuestras redes sociales</h5>
+          <h5>Puedes contactar con nosotros a través del <a href="<?php echo base_url().'Otros/contacto' ?>" style="color: rgb(0, 84, 115)"><b>formulario de contacto</b></a>, del formulario de contacto del aparamento que te guste o si lo prefieres puedes contactar con nosotros a través de nuestras redes sociales</h5>
           <a href="https://www.facebook.com/apartamentos.marenostrum" class="mr-3" style="color: rgb(0, 84, 115)"><i class="fab fa-4x fa-facebook-square"></i></a>
           <a href="https://www.instagram.com/apartamentos_mare_nostrum/" style="color: rgb(0, 84, 115)"><i class="fab fa-4x fa-instagram-square"></i></a>
         </div>

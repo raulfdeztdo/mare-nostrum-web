@@ -48,7 +48,6 @@
                     $('.nav div.main_list ul').removeClass('marginTopMenu');
                   }
               }
-              console.log($(window).scrollTop());
           });
           $('.navTrigger').click(function () {
               $(this).toggleClass('active');
