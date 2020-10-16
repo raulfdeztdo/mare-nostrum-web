@@ -27,7 +27,7 @@ class Auth extends CI_Controller {
         $this->form_validation->set_rules('contraseña', 'Contraseña','trim|xss_clean|callback_auth');
         if ($this->form_validation->run() == FALSE) {
           $title['title']="Admin - Mare Nostrum";
-          $this->load->view('head-admin', $title);
+          $this->load->view('head-Admin', $title);
           $this->load->view('login');
         } else {
           redirect(base_url().'Admin/index');
