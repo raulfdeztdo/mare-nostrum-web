@@ -4,6 +4,9 @@
     public function __construct() {       // Define el constructor
       parent::__construct();              // Invoca al constructor de la clase superior
       $this->load->model('Usuarios_Model', 'UM_Users'); //Carga el modelo
+      $this->load->model('Apartamentos_Model', 'UM_Ap'); //Carga el modelo
+      $this->load->model('Reservas_Model', 'UM_Res'); //Carga el modelo
+      $this->load->model('Mensajes_Model', 'UM_Msg'); //Carga el modelo
 
     }
 
@@ -11,7 +14,10 @@
       if (isset($_SESSION['logged_in'])) {
         $title['title'] = 'Admin - Mare Nostrum';
         $this->load->view('head-Admin', $title);
-        $this->load->view('index-Admin');
+        $datos['reservas'] = $this->UM_Res->getLast5();
+        $datos['apartamentos'] = $this->UM_Ap->getLast5();
+        $datos['NoLeidos'] = $this->UM_Msg->selectNoLeidos();
+        $this->load->view('index-Admin', $datos);
       } else {
         redirect(base_url().'Auth/login');
       }

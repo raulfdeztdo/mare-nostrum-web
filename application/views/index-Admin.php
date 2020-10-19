@@ -1,25 +1,22 @@
 <body id="page-top">
 
-  <!-- Page Wrapper -->
+  <!-- Pagina Wrapper principal -->
   <div id="wrapper">
 
-    <!-- Sidebar -->
+    <!-- Sidebar lateral -->
     <ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url().'Admin/index'; ?>">
         <div class="sidebar-brand-icon rotate-n-15">
           <img src="<?= asset_url('img/logo-solo.png') ?>" height="50px">
         </div>
         <div class="sidebar-brand-text mx-3">Mare Nostrum</div>
       </a>
-
-      <!-- Divider -->
       <hr class="sidebar-divider my-0">
-
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="<?php echo base_url().'Admin/index'; ?>">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -154,108 +151,28 @@
               </div>
             </li>
 
-            <!-- Nav Item - Alerts -->
-            <li class="nav-item dropdown no-arrow mx-1">
-              <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-bell fa-fw"></i>
-                <!-- Counter - Alerts -->
-                <span class="badge badge-danger badge-counter">3+</span>
-              </a>
-              <!-- Dropdown - Alerts -->
-              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
-                <h6 class="dropdown-header">
-                  Alerts Center
-                </h6>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="mr-3">
-                    <div class="icon-circle bg-primary">
-                      <i class="fas fa-file-alt text-white"></i>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="small text-gray-500">December 12, 2019</div>
-                    <span class="font-weight-bold">A new monthly report is ready to download!</span>
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="mr-3">
-                    <div class="icon-circle bg-success">
-                      <i class="fas fa-donate text-white"></i>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="small text-gray-500">December 7, 2019</div>
-                    $290.29 has been deposited into your account!
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="mr-3">
-                    <div class="icon-circle bg-warning">
-                      <i class="fas fa-exclamation-triangle text-white"></i>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="small text-gray-500">December 2, 2019</div>
-                    Spending Alert: We've noticed unusually high spending for your account.
-                  </div>
-                </a>
-                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
-              </div>
-            </li>
-
-            <!-- Nav Item - Messages -->
+            <!-- Item mensajes -->
             <li class="nav-item dropdown no-arrow mx-1">
               <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-envelope fa-fw"></i>
-                <!-- Counter - Messages -->
-                <span class="badge badge-danger badge-counter">7</span>
+                <span class="badge badge-danger badge-counter"><?php print count($NoLeidos) ?></span>
               </a>
-              <!-- Dropdown - Messages -->
               <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
                 <h6 class="dropdown-header">
-                  Message Center
+                  Mensajes
                 </h6>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
-                    <div class="status-indicator bg-success"></div>
-                  </div>
-                  <div class="font-weight-bold">
-                    <div class="text-truncate">Hi there! I am wondering if you can help me with a problem I've been having.</div>
-                    <div class="small text-gray-500">Emily Fowler · 58m</div>
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://source.unsplash.com/AU4VPcFN4LE/60x60" alt="">
-                    <div class="status-indicator"></div>
-                  </div>
-                  <div>
-                    <div class="text-truncate">I have the photos that you ordered last month, how would you like them sent to you?</div>
-                    <div class="small text-gray-500">Jae Chun · 1d</div>
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://source.unsplash.com/CS2uCrpNzJY/60x60" alt="">
-                    <div class="status-indicator bg-warning"></div>
-                  </div>
-                  <div>
-                    <div class="text-truncate">Last month's report looks great, I am very happy with the progress so far, keep up the good work!</div>
-                    <div class="small text-gray-500">Morgan Alvarez · 2d</div>
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="">
-                    <div class="status-indicator bg-success"></div>
-                  </div>
-                  <div>
-                    <div class="text-truncate">Am I a good boy? The reason I ask is because someone told me that people say this to all dogs, even if they aren't good...</div>
-                    <div class="small text-gray-500">Chicken the Dog · 2w</div>
-                  </div>
-                </a>
-                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+                <?php for ($s=0; $s < count($NoLeidos) ; $s++) { ?>
+                  <a class="dropdown-item d-flex align-items-center" href="#">
+                    <div class="dropdown-list-image mr-3">
+                      <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
+                    </div>
+                    <div class="font-weight-bold">
+                      <div class="text-truncate"><?php print $NoLeidos[$s]->msg; ?></div>
+                      <div class="small text-gray-500"><?php print $NoLeidos[$s]->nombrecli. " ".$NoLeidos[$s]->apellidos; ?>· 58m</div>
+                    </div>
+                  </a>
+                <?php } ?>
+                <a class="dropdown-item text-center small text-gray-500" href="#">Ver todos los mensajes</a>
               </div>
             </li>
 
@@ -293,7 +210,7 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
-          <!-- Page Heading -->
+          <!-- Cabecera Administracion -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
             <a href="<?php echo base_url().'Inicio/index'; ?>" class="d-none d-inline-block btn btn-primary shadow"><i class="fas fa-globe"></i> Ir a la web </a>
@@ -302,14 +219,14 @@
           <!-- Content Row -->
           <div class="row">
 
-            <!-- Earnings (Monthly) Card Example -->
+            <!-- Card Reservas pendientes -->
             <div class="col-xl-3 col-md-6 mb-4">
               <div class="card border-left-primary shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Earnings (Monthly)</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                      <div class="text-xs font-weight-bold text-marenostrum text-uppercase mb-1">Reservas pendientes</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">12</div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -319,14 +236,14 @@
               </div>
             </div>
 
-            <!-- Earnings (Monthly) Card Example -->
+            <!-- Card Reservas terminadas -->
             <div class="col-xl-3 col-md-6 mb-4">
               <div class="card border-left-success shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Earnings (Annual)</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Reservas terminadas</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -336,40 +253,14 @@
               </div>
             </div>
 
-            <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-info shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks</div>
-                      <div class="row no-gutters align-items-center">
-                        <div class="col-auto">
-                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
-                        </div>
-                        <div class="col">
-                          <div class="progress progress-sm mr-2">
-                            <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Pending Requests Card Example -->
+            <!-- Card Mensajes pendientes -->
             <div class="col-xl-3 col-md-6 mb-4">
               <div class="card border-left-warning shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Pending Requests</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Mensajes pendientes</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?php print count($NoLeidos) ?></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -383,70 +274,110 @@
           <!-- Content Row -->
 
           <div class="row">
-
-            <!-- Area Chart -->
-            <div class="col-xl-8 col-lg-7">
+            <!-- Lista reservas -->
+            <div class="col-xl-6 col-lg-6">
               <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
+                <!-- Menu desplegable -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
+                  <h6 class="m-0 font-weight-bold text-marenostrum">Reservas</h6>
                   <div class="dropdown no-arrow">
                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                      <div class="dropdown-header">Dropdown Header:</div>
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Something else here</a>
+                      <div class="dropdown-header">Reservas</div>
+                      <a class="dropdown-item" href="#">Crear reserva nueva</a>
+                      <a class="dropdown-item" href="#">Detalles</a>
                     </div>
                   </div>
                 </div>
-                <!-- Card Body -->
                 <div class="card-body">
-                  <div class="chart-area">
-                    <canvas id="myAreaChart"></canvas>
-                  </div>
+                  <table class="table table-sm table-hover text-center table-bordered" style="font-size: 14px">
+                    <thead class="bg-marenostrum text-white">
+                      <th>id</th>
+                      <th>Nombre cliente</th>
+                      <th>Fecha inicio</th>
+                      <th>Fecha fin</th>
+                      <th>Estado</th>
+                    </thead>
+                    <tbody>
+                      <?php for ($z=0; $z < count($reservas); $z++) { ?>
+                          <tr>
+                            <td><?php echo $reservas[$z]->idres; ?></td>
+                            <td><?php echo $reservas[$z]->nombrecli; ?></td>
+                            <td><?php echo $reservas[$z]->fechaini; ?></td>
+                            <td><?php echo $reservas[$z]->fechafin; ?></td>
+                            <?php if ($reservas[$z]->estado == "Completada") { ?>
+                              <td>
+                                <div class="progress" style="height:20px">
+                                  <div class="progress-bar bg-success" style="width:100%;height:20px"><?php echo $reservas[$z]->estado; ?></div>
+                                </div>
+                              </td>
+                            <?php } elseif($reservas[$z]->estado == "En curso") { ?>
+                              <td>
+                                <div class="progress" style="height:20px">
+                                  <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" style="width:100%;height:20px"><?php echo $reservas[$z]->estado; ?></div>
+                                </div>
+                              </td>
+                            <?php } elseif($reservas[$z]->estado == "Pendiente") { ?>
+                              <td>
+                                <div class="progress" style="height:20px">
+                                  <div class="progress-bar bg-danger" style="width:100%;height:20px"><?php echo $reservas[$z]->estado; ?></div>
+                                </div>
+                              </td>
+                            <?php } ?>
+                          </tr>
+                      <?php } ?>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="card-footer">
+                  <center><a href="#"><button type="button" name="button" class="btn btn-info">Ver todas</button></a></center>
                 </div>
               </div>
             </div>
 
             <!-- Pie Chart -->
-            <div class="col-xl-4 col-lg-5">
+            <div class="col-xl-6 col-lg-6">
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
+                  <h6 class="m-0 font-weight-bold text-marenostrum">Apartamentos</h6>
                   <div class="dropdown no-arrow">
                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                      <div class="dropdown-header">Dropdown Header:</div>
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Something else here</a>
+                      <div class="dropdown-header">Apartamentos</div>
+                      <a class="dropdown-item" href="#">Crear nuevo apartamento</a>
+                      <a class="dropdown-item" href="#">Detalles</a>
                     </div>
                   </div>
                 </div>
-                <!-- Card Body -->
                 <div class="card-body">
-                  <div class="chart-pie pt-4 pb-2">
-                    <canvas id="myPieChart"></canvas>
-                  </div>
-                  <div class="mt-4 text-center small">
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-primary"></i> Direct
-                    </span>
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-success"></i> Social
-                    </span>
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-info"></i> Referral
-                    </span>
-                  </div>
+                  <table class="table table-hover text-center table-bordered" style="font-size: 14px">
+                    <thead class="bg-marenostrum text-white">
+                      <th>id</th>
+                      <th>Nombre</th>
+                      <th>Precio</th>
+                      <th>Habitaciones</th>
+                      <th>Habitaciones dobles</th>
+                    </thead>
+                    <tbody>
+                      <?php for ($i=0; $i < count($apartamentos) ; $i++) { ?>
+                          <tr style="border-radius: 8px !important">
+                            <td><?php echo $apartamentos[$i]->idap; ?></td>
+                            <td><?php echo $apartamentos[$i]->nombre; ?></td>
+                            <td><?php echo $apartamentos[$i]->precio; ?></td>
+                            <td><?php echo $apartamentos[$i]->habitaciones; ?></td>
+                            <td><?php echo $apartamentos[$i]->habitacionesdobles; ?></td>
+                          </tr>
+                      <?php } ?>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="card-footer">
+                  <center><a href="#"><button type="button" name="button" class="btn btn-info">Ver todas</button></a></center>
                 </div>
               </div>
             </div>
@@ -461,7 +392,7 @@
               <!-- Project Card Example -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Projects</h6>
+                  <h6 class="m-0 font-weight-bold text-marenostrum">Projects</h6>
                 </div>
                 <div class="card-body">
                   <h4 class="small font-weight-bold">Server Migration <span class="float-right">20%</span></h4>
@@ -562,7 +493,7 @@
               <!-- Illustrations -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Illustrations</h6>
+                  <h6 class="m-0 font-weight-bold text-marenostrum">Illustrations</h6>
                 </div>
                 <div class="card-body">
                   <div class="text-center">
@@ -576,7 +507,7 @@
               <!-- Approach -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Development Approach</h6>
+                  <h6 class="m-0 font-weight-bold text-marenostrum">Development Approach</h6>
                 </div>
                 <div class="card-body">
                   <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce CSS bloat and poor page performance. Custom CSS classes are used to create custom components and custom utility classes.</p>
