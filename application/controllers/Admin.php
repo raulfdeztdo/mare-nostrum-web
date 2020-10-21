@@ -16,7 +16,12 @@
         $this->load->view('head-Admin', $title);
         $datos['reservas'] = $this->UM_Res->getLast5();
         $datos['apartamentos'] = $this->UM_Ap->getLast5();
-        $datos['NoLeidos'] = $this->UM_Msg->selectNoLeidos();
+        if (isset($this->db)) {
+          $datos['dbDatos'] = $this->db;
+        }
+        if ($this->UM_Msg->selectNoLeidos()) {
+          $datos['NoLeidos'] = $this->UM_Msg->selectNoLeidos();
+        }
         $this->load->view('index-Admin', $datos);
       } else {
         redirect(base_url().'Auth/login');

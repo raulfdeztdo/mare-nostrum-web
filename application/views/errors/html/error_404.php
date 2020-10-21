@@ -5,6 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
 <meta charset="utf-8">
 <title>404 Page Not Found</title>
+<link rel="stylesheet" href="/rf/application/assets/css/sb-admin-2.css">
 <style type="text/css">
 
 ::selection { background-color: #E13300; color: white; }
@@ -56,9 +57,29 @@ p {
 </style>
 </head>
 <body>
-	<div id="container">
-		<h1><?php echo $heading; ?></h1>
-		<?php echo $message; ?>
+	<!-- <div id="container">
+		<h1><?php //echo $heading; ?></h1>
+		<?php //echo $message; ?>
+	</div> -->
+	<!-- Begin Page Content -->
+	<div id="container" style="padding: 5%">
+		<div class="container-fluid">
+			<img src="/rf/application/assets/img/logo-lg.png" style="width: 30%; max-width: 250px !important">
+		</div>
+		<!-- 404 Error Text -->
+		<div class="text-center">
+			<div class="error mx-auto" data-text="404">404</div>
+			<p class="lead text-gray-800 mb-5">Página no encontrada</p>
+			<p class="text-gray-500 mb-5">Parece que la página no existe</p>
+			<a href="/rf/Inicio/index"><button type="button" class="btn btn-secondary btn-sm" name="404">Volver a la web</button></a>
+		</div>
+
 	</div>
+	<!-- /.container-fluid -->
+
+</div>
+<!-- End of Main Content -->
+
+
 </body>
 </html>

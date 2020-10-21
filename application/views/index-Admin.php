@@ -155,22 +155,30 @@
             <li class="nav-item dropdown no-arrow mx-1">
               <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-envelope fa-fw"></i>
-                <span class="badge badge-danger badge-counter"><?php print count($NoLeidos) ?></span>
+                <?php if (isset($NoLeidos)) { ?>
+                  <span class="badge badge-danger badge-counter"><?php print count($NoLeidos) ?></span>
+                <?php } ?>
               </a>
               <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
                 <h6 class="dropdown-header">
                   Mensajes
                 </h6>
-                <?php for ($s=0; $s < count($NoLeidos) ; $s++) { ?>
-                  <a class="dropdown-item d-flex align-items-center" href="#">
-                    <div class="dropdown-list-image mr-3">
-                      <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
-                    </div>
-                    <div class="font-weight-bold">
-                      <div class="text-truncate"><?php print $NoLeidos[$s]->msg; ?></div>
-                      <div class="small text-gray-500"><?php print $NoLeidos[$s]->nombrecli. " ".$NoLeidos[$s]->apellidos; ?>· 58m</div>
-                    </div>
-                  </a>
+                <?php if (isset($NoLeidos)) { ?>
+                  <?php for ($s=0; $s < count($NoLeidos) ; $s++) { ?>
+                    <a class="dropdown-item d-flex align-items-center" href="#">
+                      <div class="dropdown-list-image mr-3">
+                        <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
+                      </div>
+                      <div class="font-weight-bold">
+                        <div class="text-truncate"><?php print $NoLeidos[$s]->msg; ?></div>
+                        <div class="small text-gray-500"><?php print $NoLeidos[$s]->nombrecli. " ".$NoLeidos[$s]->apellidos; ?>· 58m</div>
+                      </div>
+                    </a>
+                  <?php } ?>
+                <?php } else { ?>
+                  <div class="font-weight-bold">
+                    <div class="text-truncate text-center pt-2 pb-2">No hay mensajes nuevos</div>
+                  </div>
                 <?php } ?>
                 <a class="dropdown-item text-center small text-gray-500" href="#">Ver todos los mensajes</a>
               </div>
@@ -205,9 +213,9 @@
           </ul>
 
         </nav>
-        <!-- End of Topbar -->
+        <!-- Fin Topbar -->
 
-        <!-- Begin Page Content -->
+        <!-- Comienzo contenido página -->
         <div class="container-fluid">
 
           <!-- Cabecera Administracion -->
@@ -216,9 +224,8 @@
             <a href="<?php echo base_url().'Inicio/index'; ?>" class="d-none d-inline-block btn btn-primary shadow"><i class="fas fa-globe"></i> Ir a la web </a>
           </div>
 
-          <!-- Content Row -->
+          <!-- Fila de cards reservas y mensajes -->
           <div class="row">
-
             <!-- Card Reservas pendientes -->
             <div class="col-xl-3 col-md-6 mb-4">
               <div class="card border-left-primary shadow h-100 py-2">
@@ -260,7 +267,11 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Mensajes pendientes</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?php print count($NoLeidos) ?></div>
+                      <?php if (isset($NoLeidos)) { ?>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800"><?php print count($NoLeidos) ?></div>
+                      <?php } else { ?>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
+                    <?php } ?>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -271,15 +282,13 @@
             </div>
           </div>
 
-          <!-- Content Row -->
-
+          <!-- Fila de listas de apartamentos y reservas -->
           <div class="row">
             <!-- Lista reservas -->
             <div class="col-xl-6 col-lg-6">
               <div class="card shadow mb-4">
-                <!-- Menu desplegable -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-marenostrum">Reservas</h6>
+                  <h6 class="m-0 font-weight-bold text-marenostrum">Últimas reservas</h6>
                   <div class="dropdown no-arrow">
                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
@@ -301,32 +310,38 @@
                       <th>Estado</th>
                     </thead>
                     <tbody>
-                      <?php for ($z=0; $z < count($reservas); $z++) { ?>
-                          <tr>
-                            <td><?php echo $reservas[$z]->idres; ?></td>
-                            <td><?php echo $reservas[$z]->nombrecli; ?></td>
-                            <td><?php echo $reservas[$z]->fechaini; ?></td>
-                            <td><?php echo $reservas[$z]->fechafin; ?></td>
-                            <?php if ($reservas[$z]->estado == "Completada") { ?>
-                              <td>
-                                <div class="progress" style="height:20px">
-                                  <div class="progress-bar bg-success" style="width:100%;height:20px"><?php echo $reservas[$z]->estado; ?></div>
-                                </div>
-                              </td>
-                            <?php } elseif($reservas[$z]->estado == "En curso") { ?>
-                              <td>
-                                <div class="progress" style="height:20px">
-                                  <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" style="width:100%;height:20px"><?php echo $reservas[$z]->estado; ?></div>
-                                </div>
-                              </td>
-                            <?php } elseif($reservas[$z]->estado == "Pendiente") { ?>
-                              <td>
-                                <div class="progress" style="height:20px">
-                                  <div class="progress-bar bg-danger" style="width:100%;height:20px"><?php echo $reservas[$z]->estado; ?></div>
-                                </div>
-                              </td>
-                            <?php } ?>
-                          </tr>
+                      <?php if (isset($reservas)) { ?>
+                        <?php for ($z=0; $z < count($reservas); $z++) { ?>
+                            <tr>
+                              <td><?php echo $reservas[$z]->idres; ?></td>
+                              <td><?php echo $reservas[$z]->nombrecli; ?></td>
+                              <td><?php echo $reservas[$z]->fechaini; ?></td>
+                              <td><?php echo $reservas[$z]->fechafin; ?></td>
+                              <?php if ($reservas[$z]->estado == "Completada") { ?>
+                                <td>
+                                  <div class="progress" style="height:20px">
+                                    <div class="progress-bar bg-success" style="width:100%;height:20px"><?php echo $reservas[$z]->estado; ?></div>
+                                  </div>
+                                </td>
+                              <?php } elseif($reservas[$z]->estado == "En curso") { ?>
+                                <td>
+                                  <div class="progress" style="height:20px">
+                                    <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" style="width:100%;height:20px"><?php echo $reservas[$z]->estado; ?></div>
+                                  </div>
+                                </td>
+                              <?php } elseif($reservas[$z]->estado == "Pendiente") { ?>
+                                <td>
+                                  <div class="progress" style="height:20px">
+                                    <div class="progress-bar bg-danger" style="width:100%;height:20px"><?php echo $reservas[$z]->estado; ?></div>
+                                  </div>
+                                </td>
+                              <?php } ?>
+                            </tr>
+                        <?php } ?>
+                      <?php } else { ?>
+                        <tr>
+                          <td colspan="5">No hay últimas reservas</td>
+                        </tr>
                       <?php } ?>
                     </tbody>
                   </table>
@@ -336,13 +351,11 @@
                 </div>
               </div>
             </div>
-
-            <!-- Pie Chart -->
+            <!-- Lista de apartamentos -->
             <div class="col-xl-6 col-lg-6">
               <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-marenostrum">Apartamentos</h6>
+                  <h6 class="m-0 font-weight-bold text-marenostrum">Últimos apartamentos</h6>
                   <div class="dropdown no-arrow">
                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
@@ -355,7 +368,7 @@
                   </div>
                 </div>
                 <div class="card-body">
-                  <table class="table table-hover text-center table-bordered" style="font-size: 14px">
+                  <table class="table table-sm table-hover text-center table-bordered" style="font-size: 14px">
                     <thead class="bg-marenostrum text-white">
                       <th>id</th>
                       <th>Nombre</th>
@@ -364,14 +377,20 @@
                       <th>Habitaciones dobles</th>
                     </thead>
                     <tbody>
-                      <?php for ($i=0; $i < count($apartamentos) ; $i++) { ?>
-                          <tr style="border-radius: 8px !important">
-                            <td><?php echo $apartamentos[$i]->idap; ?></td>
-                            <td><?php echo $apartamentos[$i]->nombre; ?></td>
-                            <td><?php echo $apartamentos[$i]->precio; ?></td>
-                            <td><?php echo $apartamentos[$i]->habitaciones; ?></td>
-                            <td><?php echo $apartamentos[$i]->habitacionesdobles; ?></td>
-                          </tr>
+                      <?php if (isset($apartamentos)) { ?>
+                        <?php for ($i=0; $i < count($apartamentos) ; $i++) { ?>
+                            <tr style="border-radius: 8px !important">
+                              <td><?php echo $apartamentos[$i]->idap; ?></td>
+                              <td><?php echo $apartamentos[$i]->nombre; ?></td>
+                              <td><?php echo $apartamentos[$i]->precio; ?></td>
+                              <td><?php echo $apartamentos[$i]->habitaciones; ?></td>
+                              <td><?php echo $apartamentos[$i]->habitacionesdobles; ?></td>
+                            </tr>
+                        <?php } ?>
+                      <?php } else { ?>
+                        <tr>
+                          <td colspan="5">No hay apartamentos añadidos</td>
+                        </tr>
                       <?php } ?>
                     </tbody>
                   </table>
@@ -383,135 +402,78 @@
             </div>
           </div>
 
-          <!-- Content Row -->
+          <!-- Fila de configuración -->
           <div class="row">
 
-            <!-- Content Column -->
+            <!-- Columna card configuración -->
             <div class="col-lg-6 mb-4">
-
-              <!-- Project Card Example -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-marenostrum">Projects</h6>
+                  <h6 class="m-0 font-weight-bold text-marenostrum">Configuración</h6>
                 </div>
                 <div class="card-body">
-                  <h4 class="small font-weight-bold">Server Migration <span class="float-right">20%</span></h4>
-                  <div class="progress mb-4">
-                    <div class="progress-bar bg-danger" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <h4 class="small font-weight-bold">Sales Tracking <span class="float-right">40%</span></h4>
-                  <div class="progress mb-4">
-                    <div class="progress-bar bg-warning" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <h4 class="small font-weight-bold">Customer Database <span class="float-right">60%</span></h4>
-                  <div class="progress mb-4">
-                    <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <h4 class="small font-weight-bold">Payout Details <span class="float-right">80%</span></h4>
-                  <div class="progress mb-4">
-                    <div class="progress-bar bg-info" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <h4 class="small font-weight-bold">Account Setup <span class="float-right">Complete!</span></h4>
-                  <div class="progress">
-                    <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
+                  <table class="table table-sm table-borderless" style="font-size: 14px">
+                    <thead>
+                      <th>Base de datos</th>
+                      <?php if (isset($dbDatos)) { ?>
+                        <th>
+                          <div class="progress" style="width: 70%; height:25px">
+                            <div class="progress-bar bg-success" style="width:100%;height:25px">Conexión establecida</div>
+                          </div>
+                        </th>
+                      <?php } else { ?>
+                        <th>
+                          <div class="progress" style="width: 70%; height:25px">
+                            <div class="progress-bar bg-danger" style="width:100%;height:25px">Conexión rechazada</div>
+                          </div>
+                      </th>
+                      <?php } ?>
+                    </thead>
+                    <tbody>
+                      <?php if (isset($dbDatos)) { ?>
+                      <tr>
+                        <td>Host</td>
+                        <td><?php print $dbDatos->hostname; ?></td>
+                      </tr>
+                      <tr>
+                        <td>Username</td>
+                        <td><?php print $dbDatos->username; ?></td>
+                      </tr>
+                      <tr>
+                        <td>Nombre BD</td>
+                        <td><?php print $dbDatos->database; ?></td>
+                      </tr>
+                      <tr>
+                        <td>Tipo servidor</td>
+                        <td><?php print $dbDatos->dbdriver; ?></td>
+                      </tr>
+                      <tr>
+                        <td>Conjunto de caracteres</td>
+                        <td><?php print $dbDatos->char_set; ?></td>
+                      </tr>
+                    <?php } else { ?>
+                      <tr>
+                        <td colspan="2" class="text-center">No hay conexión con la base de datos</td>
+                      </tr>
+                    <?php } ?>
+                    </tbody>
+                  </table>
                 </div>
               </div>
-
-              <!-- Color System -->
-              <div class="row">
-                <div class="col-lg-6 mb-4">
-                  <div class="card bg-primary text-white shadow">
-                    <div class="card-body">
-                      Primary
-                      <div class="text-white-50 small">#4e73df</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                  <div class="card bg-success text-white shadow">
-                    <div class="card-body">
-                      Success
-                      <div class="text-white-50 small">#1cc88a</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                  <div class="card bg-info text-white shadow">
-                    <div class="card-body">
-                      Info
-                      <div class="text-white-50 small">#36b9cc</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                  <div class="card bg-warning text-white shadow">
-                    <div class="card-body">
-                      Warning
-                      <div class="text-white-50 small">#f6c23e</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                  <div class="card bg-danger text-white shadow">
-                    <div class="card-body">
-                      Danger
-                      <div class="text-white-50 small">#e74a3b</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                  <div class="card bg-secondary text-white shadow">
-                    <div class="card-body">
-                      Secondary
-                      <div class="text-white-50 small">#858796</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                  <div class="card bg-light text-black shadow">
-                    <div class="card-body">
-                      Light
-                      <div class="text-black-50 small">#f8f9fc</div>
-                    </div>
-                  </div>
-              </div>
-              <div class="col-lg-6 mb-4">
-                <div class="card bg-dark text-white shadow">
-                  <div class="card-body">
-                      Dark
-                      <div class="text-white-50 small">#5a5c69</div>
-                  </div>
-                </div>
-              </div>
-            </div>
 
             </div>
 
             <div class="col-lg-6 mb-4">
 
-              <!-- Illustrations -->
+              <!-- Cambios de diseño en WEB - v2 -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-marenostrum">Illustrations</h6>
+                  <h6 class="m-0 font-weight-bold text-marenostrum">Diseño</h6>
                 </div>
                 <div class="card-body">
                   <div class="text-center">
-                    <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="img/undraw_posting_photo.svg" alt="">
+                    <p>Próximamente</p>
                   </div>
-                  <p>Add some quality, svg illustrations to your project courtesy of <a target="_blank" rel="nofollow" href="https://undraw.co/">unDraw</a>, a constantly updated collection of beautiful svg images that you can use completely free and without attribution!</p>
-                  <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on unDraw &rarr;</a>
-                </div>
-              </div>
-
-              <!-- Approach -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-marenostrum">Development Approach</h6>
-                </div>
-                <div class="card-body">
-                  <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce CSS bloat and poor page performance. Custom CSS classes are used to create custom components and custom utility classes.</p>
-                  <p class="mb-0">Before working with this theme, you should become familiar with the Bootstrap framework, especially the utility classes.</p>
                 </div>
               </div>
 
@@ -519,10 +481,10 @@
           </div>
 
         </div>
-        <!-- /.container-fluid -->
+        <!-- Fin Container-fluid -->
 
       </div>
-      <!-- End of Main Content -->
+      <!-- Fin Contenido Pagina -->
 
       <!-- Footer -->
       <footer class="sticky-footer bg-white">
@@ -532,13 +494,13 @@
           </div>
         </div>
       </footer>
-      <!-- End of Footer -->
+      <!-- Fin Footer -->
 
     </div>
-    <!-- End of Content Wrapper -->
+    <!-- Fin del Content Wrapper -->
 
   </div>
-  <!-- End of Page Wrapper -->
+  <!-- Fin  of Page Wrapper -->
 
   <!-- Scroll to Top Button-->
   <a class="scroll-to-top rounded" href="#page-top">
@@ -555,7 +517,7 @@
             <span aria-hidden="true">×</span>
           </button>
         </div>
-        <div class="modal-body">Selecciona "Salir" para terminar la sesión</div>
+        <div class="modal-body"><h5>Selecciona "Salir" para terminar la sesión</h5></div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
           <a class="btn btn-primary" href="<?php echo base_url().'Auth/logout' ?>">Salir</a>

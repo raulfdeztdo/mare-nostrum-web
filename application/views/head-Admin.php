@@ -6,14 +6,13 @@
     <!-- Favicon -->
     <link rel="icon" href="<?= asset_url('img/logo-solo.png') ?>" type="image/png">
     <!-- Archivos Bootstrap -->
-    <link rel="stylesheet" href="<?= asset_url('css/sb-admin-2.css') ?>">
     <script src="<?= asset_url('js/jquery.min.js') ?>"></script>
     <script src="<?= asset_url('js/popper.min.js') ?>"></script>
     <script src="<?= asset_url('js/bootstrap.min.js') ?>"></script>
     <script src="<?= asset_url('js/bootstrap.bundle.min.js') ?>"></script>
-
     <!-- Archivos propios -->
     <link rel="stylesheet" href="<?= asset_url('css/estilo-Admin.css') ?>">
+    <link rel="stylesheet" href="<?= asset_url('css/sb-admin-2.css') ?>">
     <!-- FA icons -->
     <link rel="stylesheet" href="<?= asset_url('fa-icons\css\all.min.css') ?>">
     <link rel="stylesheet" href="<?= asset_url('fa-icons\css\brands.css') ?>">
