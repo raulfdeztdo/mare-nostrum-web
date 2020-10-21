@@ -16,6 +16,12 @@
         return $query->result();
     }
 
+    public function getVersionSQL(){
+        $query = "SELECT @@version AS 'versionSQL'";
+        $res = $this->db->query($query);
+        return $res->result()[0];
+    }
+
     public function authenticate($user, $password){
       $this->db->select('iduser, nombreusu, group');
       $this->db->from('usuarios');

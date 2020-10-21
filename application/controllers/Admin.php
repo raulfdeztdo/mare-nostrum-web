@@ -13,16 +13,25 @@
     public function index(){
       if (isset($_SESSION['logged_in'])) {
         $title['title'] = 'Admin - Mare Nostrum';
-        $this->load->view('head-Admin', $title);
+        $this->load->view('admin/head-Admin', $title);
         $datos['reservas'] = $this->UM_Res->getLast5();
         $datos['apartamentos'] = $this->UM_Ap->getLast5();
         if (isset($this->db)) {
           $datos['dbDatos'] = $this->db;
         }
+        $datos['configDatos'] = array(
+          'url' => base_url(),
+          'default_controller' => 'Inicio',
+          'ci_version' => CI_VERSION,
+          'BDversion' => $this->UM_Users->getVersionSQL(),
+          'user' => $_SESSION['logged_in']['nombre'],
+        );
         if ($this->UM_Msg->selectNoLeidos()) {
           $datos['NoLeidos'] = $this->UM_Msg->selectNoLeidos();
         }
-        $this->load->view('index-Admin', $datos);
+        $this->load->view('admin/cabfooter1', $datos);
+        $this->load->view('admin/index-Admin', $datos);
+        $this->load->view('admin/cabfooter2');
       } else {
         redirect(base_url().'Auth/login');
       }

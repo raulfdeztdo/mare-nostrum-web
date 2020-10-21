@@ -20,15 +20,15 @@ class Auth extends CI_Controller {
     } else {
       if(!$this->input->post()){
         $title['title']= "Admin - Mare Nostrum";
-        $this->load->view('head-Admin', $title);
-        $this->load->view('login',null);
+        $this->load->view('admin/head-Admin', $title);
+        $this->load->view('admin/login',null);
       } else {
         $this->form_validation->set_rules('usuario', 'Usuario','trim|xss_clean');
         $this->form_validation->set_rules('contraseña', 'Contraseña','trim|xss_clean|callback_auth');
         if ($this->form_validation->run() == FALSE) {
           $title['title']="Admin - Mare Nostrum";
-          $this->load->view('head-Admin', $title);
-          $this->load->view('login');
+          $this->load->view('admin/head-Admin', $title);
+          $this->load->view('admin/login');
         } else {
           redirect(base_url().'Admin/index');
         }
@@ -45,7 +45,6 @@ class Auth extends CI_Controller {
       $this->session->logged_in = array(
         'id' => $user->id,
         'nombre' => $user->nombre,
-        'email' => $user->email,
         'group' => $user->group
       );
       return TRUE;
