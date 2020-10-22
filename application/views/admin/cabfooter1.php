@@ -7,7 +7,7 @@
     <ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url().'Admin/index'; ?>">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url().'Admin/index'; ?>">
         <div class="sidebar-brand-icon rotate-n-15">
           <img src="<?= asset_url('img/logo-solo.png') ?>" height="50px">
         </div>
@@ -16,7 +16,7 @@
       <hr class="sidebar-divider my-0">
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="<?php echo base_url().'Admin/index'; ?>">
+        <a class="nav-link" href="<?= base_url().'Admin/index'; ?>">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -38,7 +38,7 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="">Nueva reserva</a>
-            <a class="collapse-item" href="">Modificar reservas</a>
+            <a class="collapse-item" href="<?= base_url().'Admin/reservas'; ?>">Modificar reservas</a>
           </div>
         </div>
       </li>
@@ -52,7 +52,7 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="">Nuevo apartamento</a>
-            <a class="collapse-item" href="">Modificar apartamentos</a>
+            <a class="collapse-item" href="<?= base_url().'Admin/apartamentos'; ?>">Modificar apartamentos</a>
           </div>
         </div>
       </li>
@@ -102,7 +102,7 @@
 
       <!-- Nav Item - Tables -->
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url().'Auth/logout' ?>">
+        <a class="nav-link" href="<?= base_url().'Auth/logout' ?>">
           <i class="fas fa-fw fa-sign-out-alt"></i>
           <span>Salir</span></a>
       </li>
@@ -193,7 +193,7 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <?php echo $_SESSION['logged_in']['nombre'] ?> </span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <?= $_SESSION['logged_in']['nombre'] ?> </span>
                 <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
               </a>
               <!-- Dropdown - User Information -->

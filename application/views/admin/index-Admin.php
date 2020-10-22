@@ -5,7 +5,7 @@
   <!-- Cabecera Administracion -->
   <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-    <a href="<?php echo base_url().'Inicio/index'; ?>" class="d-none d-inline-block btn btn-success btn-icon-split shadow">
+    <a href="<?= base_url().'Inicio/index'; ?>" class="d-none d-inline-block btn btn-success btn-icon-split shadow">
       <span class="icon text-white"><i class="fas fa-globe"></i></span>
       <span class="text">Ir a la web</span>
     </a>
@@ -100,26 +100,26 @@
               <?php if (isset($reservas)) { ?>
                 <?php for ($z=0; $z < count($reservas); $z++) { ?>
                     <tr>
-                      <td><?php echo $reservas[$z]->idres; ?></td>
-                      <td><?php echo $reservas[$z]->nombrecli; ?></td>
-                      <td><?php echo $reservas[$z]->fechaini; ?></td>
-                      <td><?php echo $reservas[$z]->fechafin; ?></td>
+                      <td><?= $reservas[$z]->idres ?></td>
+                      <td><?= $reservas[$z]->nombrecli; ?></td>
+                      <td><?= $reservas[$z]->fechaini; ?></td>
+                      <td><?= $reservas[$z]->fechafin; ?></td>
                       <?php if ($reservas[$z]->estado == "Completada") { ?>
                         <td>
                           <div class="progress" style="height:20px">
-                            <div class="progress-bar bg-success" style="width:100%;height:20px"><?php echo $reservas[$z]->estado; ?></div>
+                            <div class="progress-bar bg-success" style="width:100%;height:20px"><?= $reservas[$z]->estado; ?></div>
                           </div>
                         </td>
                       <?php } elseif($reservas[$z]->estado == "En curso") { ?>
                         <td>
                           <div class="progress" style="height:20px">
-                            <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" style="width:100%;height:20px"><?php echo $reservas[$z]->estado; ?></div>
+                            <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" style="width:100%;height:20px"><?= $reservas[$z]->estado; ?></div>
                           </div>
                         </td>
                       <?php } elseif($reservas[$z]->estado == "Pendiente") { ?>
                         <td>
                           <div class="progress" style="height:20px">
-                            <div class="progress-bar bg-danger" style="width:100%;height:20px"><?php echo $reservas[$z]->estado; ?></div>
+                            <div class="progress-bar bg-danger" style="width:100%;height:20px"><?= $reservas[$z]->estado; ?></div>
                           </div>
                         </td>
                       <?php } ?>
@@ -134,7 +134,7 @@
           </table>
         </div>
         <div class="card-footer">
-          <center><a href="#"><button type="button" name="button" class="btn btn-info">Ver todas</button></a></center>
+          <center><a href="<?= base_url().'Admin/reservas'; ?>"><button type="button" name="button" class="btn btn-info">Ver todas</button></a></center>
         </div>
       </div>
     </div>
@@ -167,11 +167,11 @@
               <?php if (isset($apartamentos)) { ?>
                 <?php for ($i=0; $i < count($apartamentos) ; $i++) { ?>
                     <tr style="border-radius: 8px !important">
-                      <td><?php echo $apartamentos[$i]->idap; ?></td>
-                      <td><?php echo $apartamentos[$i]->nombre; ?></td>
-                      <td><?php echo $apartamentos[$i]->precio; ?></td>
-                      <td><?php echo $apartamentos[$i]->habitaciones; ?></td>
-                      <td><?php echo $apartamentos[$i]->habitacionesdobles; ?></td>
+                      <td><?= $apartamentos[$i]->idap; ?></td>
+                      <td><?= $apartamentos[$i]->nombre; ?></td>
+                      <td><?= $apartamentos[$i]->precio; ?></td>
+                      <td><?= $apartamentos[$i]->habitaciones; ?></td>
+                      <td><?= $apartamentos[$i]->habitacionesdobles; ?></td>
                     </tr>
                 <?php } ?>
               <?php } else { ?>
@@ -183,7 +183,7 @@
           </table>
         </div>
         <div class="card-footer">
-          <center><a href="#"><button type="button" name="button" class="btn btn-info">Ver todas</button></a></center>
+          <center><a href="<?= base_url().'Admin/apartamentos'; ?>"><button type="button" name="button" class="btn btn-info">Ver todas</button></a></center>
         </div>
       </div>
     </div>

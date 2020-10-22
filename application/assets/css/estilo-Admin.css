@@ -9,7 +9,7 @@
 			background: #60a3bc !important;
 		}
 		.user_card {
-			height: 400px; 
+			height: 400px;
 			width: 550px;
 			margin-top: auto;
 			margin-bottom: auto;
@@ -69,4 +69,23 @@
 		}
 		.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
 			background-color: #005473 !important;
+		}
+
+
+		@media screen and (max-width: 1150px) {
+			#tablaApartamentos{
+				display: block !important;
+				overflow-x: auto !important;
+			}
+		}
+
+		@media screen and (max-width: 990px) {
+			.sizeInput{
+				width: 22rem !important;
+			}
+		}
+
+		.fileinput-remove,
+		.fileinput-upload{
+			display: none;
 		}

@@ -36,7 +36,7 @@
         <div class="modal-body"><h5>Selecciona "Salir" para terminar la sesión</h5></div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-          <a class="btn btn-primary" href="<?php echo base_url().'Auth/logout' ?>">Salir</a>
+          <a class="btn btn-primary" href="<?= base_url().'Auth/logout' ?>">Salir</a>
         </div>
       </div>
     </div>

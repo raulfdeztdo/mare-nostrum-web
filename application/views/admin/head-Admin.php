@@ -10,9 +10,13 @@
     <script src="<?= asset_url('js/popper.min.js') ?>"></script>
     <script src="<?= asset_url('js/bootstrap.min.js') ?>"></script>
     <script src="<?= asset_url('js/bootstrap.bundle.min.js') ?>"></script>
+    <link rel="stylesheet" href="<?= asset_url('css/bootstrap.min.css') ?>">
     <!-- Archivos propios -->
     <link rel="stylesheet" href="<?= asset_url('css/estilo-Admin.css') ?>">
     <link rel="stylesheet" href="<?= asset_url('css/sb-admin-2.css') ?>">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.7/css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet" type="text/css"/>
+
     <!-- FA icons -->
     <link rel="stylesheet" href="<?= asset_url('fa-icons\css\all.min.css') ?>">
     <link rel="stylesheet" href="<?= asset_url('fa-icons\css\brands.css') ?>">

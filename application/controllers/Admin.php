@@ -37,6 +37,37 @@
       }
     }
 
+    public function reservas(){
+      if (isset($_SESSION['logged_in'])) {
+        $title['title'] = 'Reservas - Mare Nostrum';
+        $this->load->view('admin/head-Admin', $title);
+        if ($this->UM_Msg->selectNoLeidos()) {
+          $datos['NoLeidos'] = $this->UM_Msg->selectNoLeidos();
+        }
+        $this->load->view('admin/cabfooter1', $datos);
+        $this->load->view('admin/reservas', $datos);
+        $this->load->view('admin/cabfooter2');
+      } else {
+        redirect(base_url().'Auth/login');
+      }
+    }
+
+    public function apartamentos(){
+      if (isset($_SESSION['logged_in'])) {
+        $title['title'] = 'Apartamentos - Mare Nostrum';
+        $this->load->view('admin/head-Admin', $title);
+        if ($this->UM_Msg->selectNoLeidos()) {
+          $datosCab['NoLeidos'] = $this->UM_Msg->selectNoLeidos();
+        }
+        $this->load->view('admin/cabfooter1', $datosCab);
+        $datos['apart'] = $this->UM_Ap->getAll();
+        $this->load->view('admin/apartamentos', $datos);
+        $this->load->view('admin/cabfooter2');
+      } else {
+        redirect(base_url().'Auth/login');
+      }
+    }
+
     public function checkAlta($usuario){
       $new_user = array(
         'nombre' => $this->input->post('usuario'),
@@ -105,16 +136,6 @@
             'group' => $data->group,
           );
           $this->load->view('miperfil', $data_user);
-          // if ($this->UM_Cursos->selectCursosUser($id)) {
-          //   $cursos_user['cursos'] = $this->UM_Cursos->selectCursosUser($id);
-          //   $this->load->view('listado_cursos', $cursos_user);
-          // } else {
-          //   $this->load->view('listado_cursos');
-          // }
-          // if ($this->UM_Cursos->selectCursosProf($nombre) && $group === "Profesor") {
-          //   $cursos_prof['cursos_prof'] = $this->UM_Cursos->selectCursosProf($nombre);
-          //   $this->load->view('listado_cursos_prof', $cursos_prof);
-          // }
       } else {
           redirect(base_url().'Inicio/index');
       }

@@ -4,7 +4,7 @@
           <div class="row">
             <div class="col-sm-12 col-md-6">
               <h6>Información</h6>
-              <p class="text-justify" id="inf-text">Si tienes alguna duda acerca de nuestros servicios, no dudes en contactar con nosotros.</p>
+              <p class="text-justify" id="inf-text">Apartamentos inscritos en el Registro de turismo de Cataluña con los números Nº HUTT-008415 al HUTT-008424</p>
               <p class="text-justify" id="inf-text">Datos de empresa - Aviso legal - Política de cookies</p>
             </div>
 
@@ -15,11 +15,11 @@
             <div class="col-xs-6 col-md-3">
               <h6>Índice</h6>
               <ul class="footer-links">
-                <li><a href="<?php echo base_url().'Inicio/index' ?>">Inicio</a></li>
-                <li><a href="<?php echo base_url().'Otros/sobrenosotros' ?>">Sobre nosotros</a></li>
-                <li><a href="<?php echo base_url().'Apartamentos/categorias' ?>">Apartamentos</a></li>
-                <li><a href="<?php echo base_url().'Otros/localizacion' ?>">Localización</a></li>
-                <li><a href="<?php echo base_url().'Otros/contacto' ?>">Contacto</a></li>
+                <li><a href="<?= base_url().'Inicio/index' ?>">Inicio</a></li>
+                <li><a href="<?= base_url().'Otros/sobrenosotros' ?>">Sobre nosotros</a></li>
+                <li><a href="<?= base_url().'Apartamentos/categorias' ?>">Apartamentos</a></li>
+                <li><a href="<?= base_url().'Otros/localizacion' ?>">Localización</a></li>
+                <li><a href="<?= base_url().'Otros/contacto' ?>">Contacto</a></li>
               </ul>
             </div>
           </div>

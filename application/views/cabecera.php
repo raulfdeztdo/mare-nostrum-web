@@ -2,17 +2,17 @@
   <nav class="nav">
           <div class="container">
               <div class="logo">
-                  <a href="<?php echo base_url().'Inicio/index' ?>"><img id="imgCabecera" src="<?= asset_url('img/logo-solo.png') ?>" ></a>
+                  <a href="<?= base_url().'Inicio/index' ?>"><img id="imgCabecera" src="<?= asset_url('img/logo-solo.png') ?>" ></a>
               </div>
               <div class="tituloCab">
-                <a href="<?php echo base_url().'Inicio/index' ?>"><h2 class="text-white" id="tituloCabecera"> Mare Nostrum </h2></a>
+                <a href="<?= base_url().'Inicio/index' ?>"><h2 class="text-white" id="tituloCabecera"> Mare Nostrum </h2></a>
               </div>
               <div id="mainListDiv" class="main_list">
                   <ul class="navlinks">
-                      <li><a href="<?php echo base_url().'Otros/sobrenosotros' ?>">Sobre nosotros</a></li>
-                      <li><a href="<?php echo base_url().'Apartamentos/categorias' ?>">Apartamentos</a></li>
-                      <li><a href="<?php echo base_url().'Otros/localizacion' ?>">Localización</a></li>
-                      <li><a href="<?php echo base_url().'Otros/contacto' ?>">Contacto</a></li>
+                      <li><a href="<?= base_url().'Otros/sobrenosotros' ?>">Sobre nosotros</a></li>
+                      <li><a href="<?= base_url().'Apartamentos/categorias' ?>">Apartamentos</a></li>
+                      <li><a href="<?= base_url().'Otros/localizacion' ?>">Localización</a></li>
+                      <li><a href="<?= base_url().'Otros/contacto' ?>">Contacto</a></li>
                   </ul>
               </div>
               <span class="navTrigger">

@@ -30,7 +30,7 @@
     public function updapar($ap_act){
       $this->db->where('idap', $ap_act['idap']);
       $this->db->update('apartamentos',$ap_act);
-			return true;
+			return TRUE;
 
     }
 
